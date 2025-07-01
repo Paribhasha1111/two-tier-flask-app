@@ -41,6 +41,12 @@ pipeline{
                 
             }
         }
+        stage("Clean Running Containers") {
+           steps {
+              sh "docker rm -f flask-app || true"
+          }
+       }
+
         stage("Deploy"){
             steps{
                 echo "deploy ho gya docker compose se"
